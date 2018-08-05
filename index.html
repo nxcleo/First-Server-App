@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Login here</h1>
+        </div>
+
+        <div class="jumbotron">
+
+                <div class="form-group">
+                    <label for="form_uid">Username</label>
+                    <input type="text" class="form-control" id="form_uid">
+                </div>
+
+                <div class="form-group">
+                    <label for="form_pass">Password</label>
+                    <input type="password" class="form-control" id="form_pass">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" id="form_submit">
+                </div>
+
+
+        </div>
+
+    </div>
+
+
+<script type="text/javascript">
+
+    document.getElementById('form_submit').addEventListener('click', function() {
+        window.location.href = "google.com"
+        let params = {
+            name: document.getElementById("form_uid").value,
+            pass: document.getElementById("form_pass").value
+        };
+        let esc = encodeURIComponent;
+        let query = Object.keys(params)
+            .map(k => esc(k) + '=' + esc(params[k]))
+            .join('&');
+        alert("http://localhost:8080/login?" + query);
+        window.location.replace("http://localhost:8080/login?" + query);
+    });
+
+
+
+</script>
+</body>
+</html>
